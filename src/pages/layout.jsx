@@ -183,7 +183,7 @@ const Layout = () => {
                 <div className="relative border-b border-white/20">
                     <div className="flex items-center gap-4 py-6 px-8">
                         <h6 className="block antialiased tracking-normal font-sans text-base font-semibold leading-relaxed text-white">
-                            {"{logo}{College_name}"}
+                            Attendance Portal
                         </h6>
                     </div>
                     <button
