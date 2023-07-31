@@ -59,7 +59,7 @@ export const userSlice = createSlice({
     })
     builder.addCase(getProfile.fulfilled, (state, action) => {
       state.loading = false
-      state.name = action.payload.firstName+" "+action.payload.lastName
+      state.name = action.payload.name
       state.email = action.payload.email
       state.image = action.payload.profilePicture
       state.mode = action.payload.defaultMode

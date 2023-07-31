@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import Cookies from 'universal-cookie'
@@ -98,7 +98,7 @@ const Layout = () => {
                                     alt="FlowBite Logo"
                                 />
                                 <span className="self-center text-xl font-semibold md:text-2xl whitespace-nowrap">
-                                    Attendance Portal
+                                    Coliechan
                                 </span>
                             </div>
                         </div>

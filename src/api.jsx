@@ -37,8 +37,8 @@ api.interceptors.response.use(
     return response
   },
   error => {
-    toast.error("Network Error!")
-    console.log("Network Error!")
+    toast.error("Connection Error!")
+    console.log("Connection Error!")
   }
 );
 

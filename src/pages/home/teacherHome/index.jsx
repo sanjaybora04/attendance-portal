@@ -110,7 +110,6 @@ const TeacherHome = () => {
                                     </td>
                                     <td className="py-3 px-5 w-2/4 border-b border-blue-gray-50">
                                         <div className="block">
-                                            
                                         </div>
                                     </td>
                                     <td className="py-3 px-5 w-1/4 border-b border-blue-gray-50">
