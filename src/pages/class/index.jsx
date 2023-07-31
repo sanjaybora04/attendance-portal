@@ -80,7 +80,7 @@ const Class = () => {
                                         alt=""
                                     />
                                     <p className="block antialiased font-sans text-sm leading-normal text-gray-500 font-semibold">
-                                        {student.firstName + " " + student.lastName}
+                                        {student.name}
                                     </p>
                                 </td>
                                 <td className="py-3 px-5 w-1/2 border-b border-blue-gray-50 flex justify-end">
