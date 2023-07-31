@@ -5,7 +5,7 @@ import Cookies from 'universal-cookie';
 const cookie = new Cookies
 
 const api = axios.create({
-    baseURL:'https://attendance-portal-6l4f.onrender.com:5000',
+    baseURL:'https://attendance-portal-6l4f.onrender.com',
     timeout: 10000,
     headers: {
       'Content-Type': 'application/json',
