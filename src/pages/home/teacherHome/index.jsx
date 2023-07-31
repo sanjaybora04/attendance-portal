@@ -110,11 +110,7 @@ const TeacherHome = () => {
                                     </td>
                                     <td className="py-3 px-5 w-2/4 border-b border-blue-gray-50">
                                         <div className="block">
-                                            <button className="font-medium rounded-xl text-sm px-4 py-1 text-center text-white bg-green-500 hover:bg-green-600 shadow-md shadow-green-300"
-                                                onClick={(e)=>take_attendance(e,_class.id)}
-                                            >
-                                                TakeAttendance
-                                            </button>
+                                            
                                         </div>
                                     </td>
                                     <td className="py-3 px-5 w-1/4 border-b border-blue-gray-50">
