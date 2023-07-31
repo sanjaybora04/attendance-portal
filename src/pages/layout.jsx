@@ -98,7 +98,7 @@ const Layout = () => {
                                     alt="FlowBite Logo"
                                 />
                                 <span className="self-center text-xl font-semibold md:text-2xl whitespace-nowrap">
-                                    Coliuchan
+                                    Attendance Portal
                                 </span>
                             </div>
                         </div>
