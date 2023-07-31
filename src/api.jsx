@@ -3,9 +3,9 @@ import { toast } from 'react-toastify';
 import Cookies from 'universal-cookie';
 
 const cookie = new Cookies
-
+console.log(import.meta.env.VITE_SERVER_URL)
 const api = axios.create({
-    baseURL:'https://attendance-portal-jxip.onrender.com/',
+    baseURL:import.meta.env.VITE_SERVER_URL,
     timeout: 10000,
     headers: {
       'Content-Type': 'application/json',
