@@ -18,7 +18,30 @@ const Class = () => {
 
     const take_attendance = (e) => {
         e.preventDefault()
-        api.post('/postAttendance',{class_id,attendanceList})
+        api.post('/postAttendance', { class_id, attendanceList })
+    }
+
+    /**
+     * Get Attendance Report
+     */
+    const getReport = async () => {
+        const response = await api.post('/getReport', { class_id })
+        const blob = new Blob([response.data.report], { type: 'text/csv' })
+        // Create a URL for the Blob
+        const url = URL.createObjectURL(blob);
+
+        // Create a hidden anchor element with the download attribute
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', "Attendance_report");
+
+        // Simulate a click on the anchor element to trigger the download
+        document.body.appendChild(link);
+        link.click();
+
+        // Clean up the URL and remove the anchor element
+        URL.revokeObjectURL(url);
+        document.body.removeChild(link);
     }
 
 
@@ -44,7 +67,7 @@ const Class = () => {
                 <div className='block text-right mr-5'>
                     {takeAttendance ? null :
                         <button className='p-1 rounded-lg bg-green-600 text-white shadow-lg hover:bg-green-700'
-                        // onClick={() => { getList() }}
+                            onClick={() => { getReport() }}
                         >
                             Get Report
                         </button>
@@ -116,7 +139,7 @@ const Class = () => {
                 <div className='flex justify-center mt-5'>
                     {takeAttendance ?
                         <button className='p-2 rounded-lg bg-gradient-to-tr from-blue-700 to-blue-500 text-white shadow-blue-500/40 shadow-lg hover:bg-gradient-to-tr hover:from-blue-900 hover:to-blue-700'
-                        onClick={take_attendance}>submit
+                            onClick={take_attendance}>submit
                         </button> :
                         <EditStudentList class_id={class_id} />
                     }
