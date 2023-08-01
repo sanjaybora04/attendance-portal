@@ -7,15 +7,21 @@ const studentHome = () => {
     const dispatch = useDispatch()
     const classes = useSelector(state => state.profile.classes)
 
+    const [totalAttendance,setTotalAttendance] = useState(100)
+
     useEffect(()=>{
         dispatch(getClasses())
     },[])
+    useEffect(()=>{
+        const sum = classes.map(_class=>_class.attendance).reduce((total, currentValue) => total + currentValue, 0)
+        setTotalAttendance(sum/classes.length)
+    },[classes])
 
     return (
         <>
-            {/* <div className={'block m-2 p-2 rounded-lg text-center '+(attendance>=75?"bg-green-200":"bg-red-200")}>
-                OverAll Attendance :- {attendance}%
-            </div><hr className='border-green-600'/> */}
+            <div className={'block m-2 p-2 rounded-lg text-center '+(totalAttendance>=90?"bg-blue-200":totalAttendance>75?"bg-green-200":"bg-red-200")}>
+                OverAll Attendance :- {totalAttendance}%
+            </div><hr className='border-green-600'/>
 
             {/* Subjects list */}
             <div className="p-6 overflow-x-scroll px-0 pt-0 pb-2">
