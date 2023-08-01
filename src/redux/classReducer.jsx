@@ -5,13 +5,13 @@ import api from '/src/api'
 const getClass = createAsyncThunk(
   'user/getClass',
   (class_id) => {
-    return api.post('/getStudents', { class_id })
+    return api.post('/getClass', { class_id })
       .then((response) => response.data)
   }
 )
 
 const initialState = {
-  // class: {},
+  name: 'Class',
   students:[],
   loading: false,
   error: ''
@@ -28,7 +28,7 @@ export const classSlice = createSlice({
 
     builder.addCase(getClass.fulfilled, (state, action) => {
       state.loading = false
-      // state.class = action.payload.class
+      state.name = action.payload.name
       state.students = action.payload.students
       state.error = ''
     })
