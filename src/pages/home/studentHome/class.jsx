@@ -9,7 +9,7 @@ const Class = ({_class}) => {
             </td>
             <td className="py-3 px-5 w-1/3 border-b text-center">
                 <p className="inline antialiased text-sm">
-                    {_class.teacher_name}
+                    {_class['Teacher.name']}
                 </p>
             </td>
             <td className="py-3 px-5 w-1/3 border-b text-center">
