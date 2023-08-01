@@ -22,23 +22,19 @@ const studentHome = () => {
                 <table className="w-full table-auto">
                     <thead>
                         <tr className='flex justify-between'>
-                            <th className="border-b w-1/4 border-green-600 py-3 px-5 text-center">
+                            <th className="border-b w-1/3 border-green-600 py-3 px-5 text-center">
                                 <p className="block antialiased font-sans text-sm font-bold">
                                     Subject
                                 </p>
                             </th>
-                            <th className="border-b w-1/4 border-green-600 py-3 px-5 text-center">
+                            <th className="border-b w-1/3 border-green-600 py-3 px-5 text-center">
                                 <p className="block antialiased font-sans text-sm font-bold">
                                     Teacher
                                 </p>
                             </th>
-                            <th className="border-b w-1/4 border-green-600 py-3 px-5 text-center">
+                            <th className="border-b w-1/3 border-green-600 py-3 px-5 text-center">
                                 <p className="block antialiased font-sans text-sm font-bold">
                                     Attendance
-                                </p>
-                            </th>
-                            <th className="border-b w-1/4 border-green-600 py-3 px-5 text-center">
-                                <p className="block antialiased font-sans text-sm font-bold ">
                                 </p>
                             </th>
                         </tr>

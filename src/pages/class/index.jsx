@@ -80,13 +80,13 @@ const Class = () => {
                 <table className="w-full table-auto mt-3">
                     <thead>
                         <tr className='flex justify-between'>
-                            <th className="border-b w-1/2 border-blue-gray-50 py-3 px-5">
+                            <th className="border-b w-1/2 py-3 px-5">
                                 <p className="block antialiased font-sans text-sm font-bold uppercase">
                                     Name
                                 </p>
                             </th>
 
-                            <th className="border-b w-1/2 border-blue-gray-50 py-3 px-5">
+                            <th className="border-b w-1/2 py-3 px-5">
                                 <p className="block antialiased font-sans text-sm font-bold uppercase">
                                     {takeAttendance ? "Attendance" : "Email"}
                                 </p>
@@ -96,7 +96,7 @@ const Class = () => {
                     <tbody>
                         {_class.students.map(student => {
                             return <tr className='flex justify-between'>
-                                <td className="py-3 px-5 w-1/2 border-b border-blue-gray-50 flex">
+                                <td className="py-3 px-5 w-1/2 border-b flex">
                                     <img
                                         className="w-8 h-8 rounded-full mr-2"
                                         src={student.profilePicture}
@@ -106,7 +106,7 @@ const Class = () => {
                                         {student.name}
                                     </p>
                                 </td>
-                                <td className="py-3 px-5 w-1/2 border-b border-blue-gray-50 flex justify-end">
+                                <td className="py-3 px-5 w-1/2 border-b flex justify-end">
                                     <p className="truncate block antialiased font-sans text-sm leading-normal text-gray-500 font-semibold">
                                         {takeAttendance ?
                                             <>
