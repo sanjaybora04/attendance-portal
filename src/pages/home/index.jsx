@@ -1,10 +1,14 @@
-import { useDispatch, useSelector } from 'react-redux'
+import Cookies from 'universal-cookie';
+
+const cookie = new Cookies
+
 import TeacherHome from './teacherHome'
 import StudentHome from './studentHome'
 
+
 const Home = () => {
-    const dispatch = useDispatch()
-    const mode = useSelector(state => state.profile.mode)
+    const mode = cookie.get('mode')
+    console.log(mode)
 
     return (
         <div className="flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md">

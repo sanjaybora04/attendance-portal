@@ -35,18 +35,11 @@ const initialState = {
   image: '',
   classes: [],
   myclasses: [],
-  mode: ''
 }
 
 export const userSlice = createSlice({
   name: 'user',
   initialState,
-  reducers:{
-    setMode:(state,mode)=>{
-      state.mode = mode
-    }
-
-  },
   extraReducers: (builder) => {
     // Get Profile
     builder.addCase(getProfile.pending, state => {
@@ -57,7 +50,6 @@ export const userSlice = createSlice({
       state.name = action.payload.name
       state.email = action.payload.email
       state.image = action.payload.profilePicture
-      state.mode = action.payload.defaultMode
       state.error = null
     })
     builder.addCase(getProfile.rejected, (state, action) => {
