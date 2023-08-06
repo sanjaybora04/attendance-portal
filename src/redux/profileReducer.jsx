@@ -42,13 +42,8 @@ export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers:{
-    toogleMode:(state)=>{
-      if(state.mode == 'student'){
-        state.mode = 'teacher';
-      }
-      else{
-        state.mode = 'student';
-      }
+    setMode:(state,mode)=>{
+      state.mode = mode
     }
 
   },
@@ -91,7 +86,7 @@ export const userSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-const {toogleMode} = userSlice.actions;
-export { getProfile, getMyclasses , getClasses, toogleMode }
+const {setMode} = userSlice.actions;
+export { getProfile, getMyclasses , getClasses, setMode }
 
 export default userSlice.reducer

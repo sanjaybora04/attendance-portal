@@ -93,9 +93,9 @@ const Layout = () => {
 
                             <div className="flex ml-2 md:mr-24">
                                 <img
-                                    src="https://flowbite.com/docs/images/logo.svg"
+                                    src="/vite.svg"
                                     className="h-8 mr-3"
-                                    alt="FlowBite Logo"
+                                    alt="attendance portal"
                                 />
                                 <span className="self-center text-xl font-semibold md:text-2xl whitespace-nowrap">
                                     Attendance Portal
@@ -139,7 +139,7 @@ const Layout = () => {
                                     <ul className="py-1" role="none">
                                         <li>
                                             <Link
-                                                to="/"
+                                                to="/home"
                                                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                                                 role="menuitem"
                                             >
@@ -213,9 +213,9 @@ const Layout = () => {
                 <div className="m-4">
                     <ul className="mb-4 flex flex-col gap-1">
                         <li>
-                            <Link aria-current="page" className="active" to="/">
+                            <Link aria-current="page" className="active" to="/home">
                                 <button
-                                    className={"middle none font-sans font-bold center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-lg capitalize w-full flex items-center gap-4 px-4 text-white " + (location.pathname == '/' ? 'bg-gradient-to-tr from-blue-600 to-blue-400 shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/40 active:opacity-[0.85]' : 'hover:bg-white/10 active:bg-white/30')}
+                                    className={"middle none font-sans font-bold center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-lg capitalize w-full flex items-center gap-4 px-4 text-white " + (location.pathname == '/home' ? 'bg-gradient-to-tr from-blue-600 to-blue-400 shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/40 active:opacity-[0.85]' : 'hover:bg-white/10 active:bg-white/30')}
                                     type="button"
                                 >
                                     <svg

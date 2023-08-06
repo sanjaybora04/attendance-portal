@@ -1,18 +1,24 @@
 import React from 'react';
 import Cookies from 'universal-cookie'
 import { useGoogleLogin } from '@react-oauth/google';
-import api from '../../api';
-
+import api from '/src/api';
+import { useMatch } from 'react-router-dom';
+import { useDispatch } from 'react-redux'
+import { setMode } from '/src/redux/profileReducer'
 const cookie = new Cookies
 
 
 const Signin = () => {
+  const match = useMatch('/signin/:user');
+  const user = match?.params?.user || '';
+  const dispatch = useDispatch()
 
   const googleLogin = useGoogleLogin({
     onSuccess: async(tokenResponse) => {
       const response = await api.post('/signin',{token:tokenResponse.access_token})
       cookie.set("token", response.data.token, {maxAge:60*60*24*24})
-      window.location.pathname = '/'
+      dispatch(setMode(user))
+      window.location.pathname = '/home'
     },
   });
 
