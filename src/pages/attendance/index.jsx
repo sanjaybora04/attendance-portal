@@ -146,7 +146,7 @@ const Attendances = () => {
                 <div className='flex justify-center mt-5'>
                     <button className='flex font-medium rounded-xl text-sm px-4 py-1 text-center text-white bg-green-500 hover:bg-green-600 shadow-md shadow-green-300'
                         onClick={postAttendance}>
-                        Submit
+                        {attendanceId==null?"Submit":"Update"}
                     </button>
                 </div>
             </div>
