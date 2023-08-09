@@ -64,8 +64,7 @@ const Layout = () => {
 
     return (
         <>
-
-            <nav className="fixed top-0 z-60 w-full bg-blue-50">
+            <nav className="fixed top-0 z-[998] w-full bg-blue-50">
                 <div className="px-3 py-3 lg:px-5 lg:pl-3">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center justify-start md:ml-80">
@@ -177,7 +176,7 @@ const Layout = () => {
             {/* Sidebar */}
             <aside
                 id="sidebar"
-                className="bg-gray-800 border-gray-700 fixed z-50 w-72 inset-0 my-4 ml-4 h-[calc(100%-32px)] rounded-xl transition-transform -translate-x-80 md:translate-x-0"
+                className="bg-gray-800 border-gray-700 fixed z-[999] w-72 inset-0 my-4 ml-4 h-[calc(100%-32px)] rounded-xl transition-transform -translate-x-80 md:translate-x-0"
                 aria-label="Layout"
             >
                 <div className="relative border-b border-white/20">
@@ -215,7 +214,7 @@ const Layout = () => {
                         <li>
                             <Link aria-current="page" className="active" to="/home">
                                 <button
-                                    className={"middle none font-sans font-bold center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-lg capitalize w-full flex items-center gap-4 px-4 text-white " + (location.pathname == '/home' ? 'bg-gradient-to-tr from-blue-600 to-blue-400 shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/40 active:opacity-[0.85]' : 'hover:bg-white/10 active:bg-white/30')}
+                                    className={"middle none font-sans font-bold center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-lg capitalize w-full flex items-center gap-4 px-4 text-white " + (location.pathname.includes('/home') ? 'bg-gradient-to-tr from-blue-600 to-blue-400 shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/40 active:opacity-[0.85]' : 'hover:bg-white/10 active:bg-white/30')}
                                     type="button"
                                 >
                                     <svg

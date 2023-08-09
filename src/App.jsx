@@ -11,6 +11,7 @@ import Profile from './pages/profile';
 import Class from './pages/class';
 import Signin from './pages/auth/signin';
 import WelcomePage from './pages/welcomepage';
+import Attendance from './pages/attendance'
 
 
 const App = () => {
@@ -26,7 +27,8 @@ const App = () => {
         <Route exact path='/' element={<WelcomePage />}></Route>
         <Route element={<Layout />}>
           <Route exact path='/home' element={<Home />}></Route>
-          <Route exact path='/class/:classId' element={<Class />}></Route>
+          <Route exact path='/home/class/:classId' element={<Class />}></Route>
+          <Route exact path='/home/attendance/:classId' element={<Attendance />}></Route>
           <Route exact path='/profile' element={<Profile />}></Route>
         </Route>
       </Routes>

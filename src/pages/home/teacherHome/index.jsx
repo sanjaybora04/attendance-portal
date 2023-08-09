@@ -101,7 +101,7 @@ const TeacherHome = () => {
                     </thead>
                     <tbody>
                         {myclasses.map(_class => {
-                            return <Link to={'/class/' + (_class.id)} key={_class.id} className='w-full'>
+                            return <Link to={'/home/class/' + (_class.id)} key={_class.id} className='w-full'>
                                 <tr className='flex justify-between'>
                                     <td className="py-3 px-5 w-1/4 border-b border-blue-gray-50">
                                         <p className="block antialiased font-sans text-sm leading-normal font-semibold">
