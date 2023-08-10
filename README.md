@@ -4,7 +4,7 @@
 
 * Clone the repository
   ```
-  git clone https://github.com/sanjaybora04/attendance_portal
+  git clone https://github.com/sanjaybora04/attendance-portal
   ```
 * Install Packages
   ```
