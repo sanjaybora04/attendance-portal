@@ -14,9 +14,9 @@ const Signin = () => {
   const googleLogin = useGoogleLogin({
     onSuccess: async(tokenResponse) => {
       const response = await api.post('/signin',{token:tokenResponse.access_token})
+      window.location.pathname = '/home'
       cookie.set("token", response.data.token, {maxAge:60*60*24*24})
       cookie.set('mode', user, {maxAge:60*60*24*24})
-      window.location.pathname = '/home'
     },
   });
 

@@ -9,7 +9,6 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
     const mode = cookie.get('mode')
-    console.log(mode)
 
     return (
         <div className="flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md">

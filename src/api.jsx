@@ -32,8 +32,8 @@ api.interceptors.response.use(
       toast(alerts.join('\n'))
     }
     if (response.data.notloggedin && window.location.pathname!='/signin' && window.location.pathname!='/'){
-      alert(window.location.pathname)
-      window.location.pathname = '/signin'
+      cookie.remove('token')
+      window.location.pathname = '/'
     }
     return response
   },
