@@ -2,8 +2,8 @@ import Cookies from 'universal-cookie';
 
 const cookie = new Cookies
 
-import TeacherHome from './teacherHome'
-import StudentHome from './studentHome'
+import Teacher from './teacher'
+import Student from './student'
 import { Link } from 'react-router-dom';
 
 
@@ -20,7 +20,7 @@ const Home = () => {
                 </h6>
             </div>
             
-            {mode=="student"?<StudentHome/>:<TeacherHome/>}
+            {mode=="student"?<Student/>:<Teacher/>}
         </div>
 
     )

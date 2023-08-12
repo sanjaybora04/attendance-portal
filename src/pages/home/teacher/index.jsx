@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getMyclasses} from '/src/redux/profileReducer'
+import { getTeacherClasses} from '/src/redux/profileReducer'
 import api from '/src/api'
 import { Link } from 'react-router-dom'
 
-const TeacherHome = () => {
+const Home = () => {
     const dispatch = useDispatch()
     
     
-    const myclasses = useSelector(state => state.profile.myclasses) //list of all classes
+    const myclasses = useSelector(state => state.profile.classes.teacher) //list of all classes
     
     // Container States
     const [addClass, setAddclass] = useState(false)
@@ -22,7 +22,7 @@ const TeacherHome = () => {
     */
    const submitClass = () => {
        api.post('/addClass', { name: className })
-       .then(() => { dispatch(getMyclasses()) })
+       .then(() => { dispatch(getTeacherClasses()) })
     };
     
     /**
@@ -35,10 +35,13 @@ const TeacherHome = () => {
        
        if (confirmDelete) {
            api.post('/deleteClass', { class_id: _class.id })
-           .then(() => { dispatch(getMyclasses()) })
+           .then(() => { dispatch(getTeacherClasses()) })
         }
     }
-    
+
+    useEffect(()=>{
+        dispatch(getTeacherClasses())
+    },[])
     
     return (
         <>
@@ -134,4 +137,4 @@ const TeacherHome = () => {
     )
 }
 
-export default TeacherHome
+export default Home

@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getClass } from '../../redux/classReducer'
+import { getClass } from '../../../redux/classReducer'
 import api from '/src/api'
 
-const EditStudentList = ({class_id}) => {
+const AddStudents = ({class_id}) => {
     const dispatch = useDispatch()
 
-    const [editStudents,setEditStudents] = useState(false)
+    const [addStudents,setAddStudents] = useState(false)
     const [student, setStudent] = useState('')
 
 
     const addStudent = () => {
-        setEditStudents(false)
+        setAddStudents(false)
 
         api.post('/addStudents', {
             class_id,
@@ -26,11 +26,11 @@ const EditStudentList = ({class_id}) => {
 
         <div className='block text-center'>
             <button className='p-1 rounded-lg bg-gradient-to-tr from-blue-700 to-blue-500 text-white shadow-blue-500/40 shadow-lg hover:bg-gradient-to-tr hover:from-blue-900 hover:to-blue-700'
-                onClick={() => { setEditStudents(!editStudents) }}
+                onClick={() => { setAddStudents(!addStudents) }}
             >
                 Add Student
             </button>
-            {editStudents &&
+            {addStudents &&
                 <div className='p-3 md:ml-44 left-[calc(50%-128px)] rounded-lg shadow-lg absolute w-64 grid grid-cols-2 bg-white'>
                 <div className='col-span-2'>
                     <input
@@ -59,4 +59,4 @@ const EditStudentList = ({class_id}) => {
     )
 }
 
-export default EditStudentList
+export default AddStudents

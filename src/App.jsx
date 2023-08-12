@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
-import { getProfile, getMyclasses } from './redux/profileReducer';
+import { getProfile} from './redux/profileReducer';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -18,7 +18,6 @@ const App = () => {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getProfile())
-    dispatch(getMyclasses())
   }, [])
   return (
     <Router>

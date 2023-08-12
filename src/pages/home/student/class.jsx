@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom"
+
 const Class = ({_class}) => {
 
     return (
-        <tr className='flex justify-between' key={_class._id}>
+        <Link to={'/home/attendance/'+_class.id} className='flex justify-between' key={_class._id}>
             <td className="py-3 px-5 w-1/3 border-b text-center">
                 <p className="inline antialiased text-sm">
                     {_class.name}
@@ -17,7 +19,7 @@ const Class = ({_class}) => {
                     {_class.attendance}
                 </p>
             </td>
-        </tr>
+        </Link>
     )
 }
 

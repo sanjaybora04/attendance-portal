@@ -8,6 +8,6 @@ export default configureStore({
     reducer: {
         profile: profileReducer,
         class: classReducer,
-        attendance: attendanceReducer
+        attendances: attendanceReducer
     }
 })

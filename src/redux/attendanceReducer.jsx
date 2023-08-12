@@ -2,36 +2,62 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import api from '/src/api'
 
 
-const getAttendance = createAsyncThunk(
-  'user/class/getAttendance',
+const getTeacherAttendance = createAsyncThunk(
+  'user/attendance/getTeacherAttendance',
   ({class_id,date}) => {
-    return api.post('/getAttendanceData', { class_id,date:date.toDateString() })
+    return api.post('/getTeacherAttendance', { class_id,date:date.toDateString() })
+      .then((response) => response.data)
+  }
+)
+
+const getStudentAttendance = createAsyncThunk(
+  'user/attendance/getStudentAttendance',
+  ({class_id,date}) => {
+    return api.post('/getStudentAttendance', { class_id,date:date.toDateString() })
       .then((response) => response.data)
   }
 )
 
 const initialState = {
-  attendances:[],
+  teacher: [],
+  student: [],
   loading: false,
-  error: ''
+  error: null
 }
 
 export const attendanceSlice = createSlice({
   name: 'class',
   initialState,
   extraReducers: (builder) => {
-
-    builder.addCase(getAttendance.pending, state => {
+    // Get Teacher Attendance
+    builder.addCase(getTeacherAttendance.pending, state => {
       state.loading = true
     })
 
-    builder.addCase(getAttendance.fulfilled, (state, action) => {
+    builder.addCase(getTeacherAttendance.fulfilled, (state, action) => {
       state.loading = false
-      state.attendances = action.payload.attendances
-      state.error = ''
+      state.teacher = action.payload.attendances
+      state.error = null
     })
 
-    builder.addCase(getAttendance.rejected, (state, action) => {
+    builder.addCase(getTeacherAttendance.rejected, (state, action) => {
+      state.loading = false
+      state.error = action.error.message
+    })
+
+    // Get Student Attendance
+    builder.addCase(getStudentAttendance.pending, state => {
+      state.loading = true
+    })
+    
+    builder.addCase(getStudentAttendance.fulfilled, (state, action) => {
+      console.log(action.payload.attendances)
+      state.loading = false
+      state.student = action.payload.attendances
+      state.error = null
+    })
+
+    builder.addCase(getStudentAttendance.rejected, (state, action) => {
       state.loading = false
       state.error = action.error.message
     })
@@ -39,6 +65,6 @@ export const attendanceSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export { getAttendance }
+export { getTeacherAttendance, getStudentAttendance }
 
 export default attendanceSlice.reducer

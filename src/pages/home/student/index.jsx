@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import Subject from './class'
-import { getClasses } from '../../../redux/profileReducer';
+import { getStudentClasses } from '../../../redux/profileReducer';
 
-const studentHome = () => {
+const Home = () => {
     const dispatch = useDispatch()
-    const classes = useSelector(state => state.profile.classes)
+    const classes = useSelector(state => state.profile.classes.student)
 
     const [totalAttendance,setTotalAttendance] = useState(100)
 
     useEffect(()=>{
-        dispatch(getClasses())
+        dispatch(getStudentClasses())
     },[])
     useEffect(()=>{
         const sum = classes.map(_class=>_class.attendance).reduce((total, currentValue) => total + currentValue, 0)
@@ -57,4 +57,4 @@ const studentHome = () => {
     )
 }
 
-export default studentHome
+export default Home

@@ -10,18 +10,18 @@ const getProfile = createAsyncThunk(
   }
 )
 
-const getMyclasses = createAsyncThunk(
-  'user/getMyclasses',
+const getTeacherClasses = createAsyncThunk(
+  'user/getTeacherClasses',
   () => {
-    return api.post('/getMyclasses')
+    return api.post('/getTeacherClasses')
       .then((response) => response.data)
   }
 )
 
-const getClasses = createAsyncThunk(
-  'user/getClasses',
+const getStudentClasses = createAsyncThunk(
+  'user/getStudentClasses',
   () => {
-    return api.post('/getClasses')
+    return api.post('/getStudentClasses')
       .then((response) => response.data)
   }
 )
@@ -33,8 +33,12 @@ const initialState = {
   name: '',
   email: '',
   image: '',
-  classes: [],
-  myclasses: [],
+  classes: {
+    student:[],
+    teacher:[],
+    loading:false,
+    error:null
+  }
 }
 
 export const userSlice = createSlice({
@@ -56,29 +60,29 @@ export const userSlice = createSlice({
       state.loading = false
       state.error = action.error.message
     })
-    // Get MyClasses
-    builder.addCase(getMyclasses.pending, state => {
-      state.loading = true
+    // Get Teacher Classes
+    builder.addCase(getTeacherClasses.pending, state => {
+      state.classes.loading = true
     })
-    builder.addCase(getMyclasses.fulfilled, (state, action) => {
-      state.loading = false
-      state.myclasses = action.payload
-      state.error = null
+    builder.addCase(getTeacherClasses.fulfilled, (state, action) => {
+      state.classes.loading = false
+      state.classes.teacher = action.payload
+      state.classes.error = null
     })
-    // Get Classes
-    builder.addCase(getClasses.pending, state => {
-      state.loading = true
+    // Get Student Classes
+    builder.addCase(getStudentClasses.pending, state => {
+      state.classes.loading = true
     })
-    builder.addCase(getClasses.fulfilled, (state, action) => {
-      state.loading = false
-      state.classes = action.payload
-      state.error = null
+    builder.addCase(getStudentClasses.fulfilled, (state, action) => {
+      state.classes.loading = false
+      state.classes.student = action.payload
+      state.classes.error = null
     })
   },
 })
 
 // Action creators are generated for each case reducer function
 const {setMode} = userSlice.actions;
-export { getProfile, getMyclasses , getClasses, setMode }
+export { getProfile, getTeacherClasses , getStudentClasses, setMode }
 
 export default userSlice.reducer
