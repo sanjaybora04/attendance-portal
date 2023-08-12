@@ -49,6 +49,7 @@ const Attendances = ({ date, class_id, _class }) => {
                 Attendances on this date:
             </div>
 
+            {attendances.length==0?<div className='flex justify-center text-gray-400'>No Attendances taken yet</div>:null}
             {attendances.map(attendance => {
                 return <div className='flex justify-center m-1'>
                     <button className={'text-white hover:bg-blue-700 hover:scale-105 p-1 w-64 flex justify-center rounded-lg ' + (attendanceId == attendance.id ? 'bg-blue-700 scale-105' : 'bg-blue-500')}
@@ -64,7 +65,7 @@ const Attendances = ({ date, class_id, _class }) => {
             })}
 
             <div className='flex justify-center m-3'>
-                <button className={'text-white hover:bg-green-700 hover:scale-105 w-64 flex justify-center rounded-lg ' + (attendanceId == null ? 'bg-green-700 scale-105' : 'bg-green-500')}
+                <button className={'text-white hover:bg-green-700 hover:scale-105 w-64 flex justify-center rounded-lg p-1 ' + (attendanceId == null ? 'bg-green-700 scale-105' : 'bg-green-500')}
                     onClick={e => setAttendanceData(e, [], null)}>
                     Add new Attendance
                 </button>
