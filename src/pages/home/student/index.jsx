@@ -14,7 +14,7 @@ const Home = () => {
     },[])
     useEffect(()=>{
         const sum = classes.map(_class=>_class.attendance).reduce((total, currentValue) => total + currentValue, 0)
-        setTotalAttendance(sum/classes.length)
+        setTotalAttendance(Math.round(sum/classes.length))
     },[classes])
 
     return (
