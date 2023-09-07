@@ -31,7 +31,7 @@ api.interceptors.response.use(
       const alerts = response.data.alerts.map(alert=>alert.msg)
       toast(alerts.join('\n'))
     }
-    if (response.data.notloggedin && window.location.pathname!='/signin' && window.location.pathname!='/'){
+    if (response.data.invalidToken && window.location.pathname!='/signin' && window.location.pathname!='/'){
       cookie.remove('token')
       window.location.pathname = '/'
     }
